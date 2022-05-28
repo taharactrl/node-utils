@@ -1,0 +1,23 @@
+{
+  "name": "utils",
+  "version": "0.1.0",
+  "description": "nodejs custom utility library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taharactrl/node-utils.git"
+  },
+  "keywords": [
+    "util",
+    "json"
+  ],
+  "author": "Kohei Tahara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taharactrl/node-utils/issues"
+  },
+  "homepage": "https://github.com/taharactrl/node-utils#readme"
+}

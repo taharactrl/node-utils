@@ -1,0 +1,4 @@
+{
+  "NOT_STRING" : "syntax error : %s is not a string.",
+  "NOT_OBJECT" : "syntax error : %s is not a object."
+}

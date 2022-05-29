@@ -1,3 +1,5 @@
+const ERROR = require("./error.json");
+
 const subtractJson = (a, b) => {
   let mismatchList = [];
 
@@ -59,6 +61,23 @@ const detectRecursiveObject = (obj) => {
   return recursiveObjectPathList;
 };
 
+const objectFromJSONPath = (obj, path) => {
+  if (typeof obj != "object") {
+    throw new Error(ERROR.NOT_OBJECT.replace(/%s/, obj));
+  }
+
+  if (typeof path != "string") {
+    throw new Error(ERROR.NOT_STRING.replace(/%s/, path));
+  }
+
+  let ret = obj;
+  for (let subPath of path.split(".")) {
+    ret = ret?.[subPath];
+  }
+
+  return ret;
+};
+
 module.exports = {
   uniqArray,
   subtractJson,
@@ -67,4 +86,5 @@ module.exports = {
   includeJSON,
   equalJSON,
   cloneJSON,
+  objectFromJSONPath,
 };

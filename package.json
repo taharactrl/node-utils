@@ -1,10 +1,10 @@
 {
-  "name": "utils",
-  "version": "0.0.1",
+  "name": "@taharactrl/utils",
+  "version": "0.1.0",
   "description": "nodejs custom utility library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/taharactrl/node-utils/issues"
   },
-  "homepage": "https://github.com/taharactrl/node-utils#readme"
+  "homepage": "https://github.com/taharactrl/node-utils#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "lodash": "^4.17.21",
+    "mocha": "^10.0.0"
+  }
 }

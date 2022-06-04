@@ -1,3 +1,4 @@
+const { base } = require("mocha/lib/reporters");
 const ERROR = require("./error.json");
 
 const subtractJson = (a, b) => {
@@ -78,6 +79,11 @@ const objectFromJSONPath = (obj, path) => {
   return ret;
 };
 
+const mergeObjects = (baseObject, additionalObject) => {
+  baseObject = { ...baseObject, ...additionalObject };
+  return baseObject;
+};
+
 module.exports = {
   uniqArray,
   subtractJson,
@@ -87,4 +93,5 @@ module.exports = {
   equalJSON,
   cloneJSON,
   objectFromJSONPath,
+  mergeObjects,
 };

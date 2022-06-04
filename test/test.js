@@ -159,4 +159,34 @@ describe("Custom utility functions tests", () => {
       ret.should.deep.equal(["a.b", "c", "d.0"]);
     });
   });
+
+  describe("Merge JSON", () => {
+    it("README case", () => {
+      let jsonA = {
+        a1: "hoge",
+        a2: "foo",
+        a3: [123],
+      };
+
+      const jsonB = {
+        a1: "hoge",
+        a2: "foo",
+      };
+
+      const jsonC = {
+        a1: "hoge",
+        a2: "hei",
+        a4: [234],
+      };
+
+      const ret = _utils.mergeObjects({ ...jsonA, ...jsonC });
+      ret.should.be.a("object");
+      ret.should.deep.equal({
+        a1: "hoge",
+        a2: "hei",
+        a3: [123],
+        a4: [234],
+      });
+    });
+  });
 });

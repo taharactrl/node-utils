@@ -136,3 +136,28 @@ const ret2 = _utils.equalJSON(jsonA, jsonC)
 console.log(ret2)
 // => true
 ```
+
+## Equal JSON (`mergeObjects`)
+
+```
+const _utils = require('@taharactrl/utils');
+
+let jsonA = {
+  a1: "hoge",
+  a2: "foo",
+  a3: [123],
+};
+
+const jsonB = {
+  a1: "hoge",
+  a2: "hei",
+  a4: [234],
+};
+
+const mergedObject = _utils.equalJSON(jsonA, jsonB)
+console.log(mergedObject);
+// => { "a1": "hoge", "a2": "hei", "a3": [123], "a4": [234]}
+
+// if you want to apply the results to the original object.
+jsonA = _utils.equalJSON(jsonA, jsonB)
+```

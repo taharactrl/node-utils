@@ -1,26 +1,20 @@
-const { base } = require("mocha/lib/reporters");
 const ERROR = require("./error.json");
 
+const isObject = (x) => typeof x === "object";
+
 const subtractJson = (a, b) => {
-  let mismatchList = [];
+  return Object.keys(a).reduce((acc, key) => {
+    const valueA = a[key];
+    const valueB = b[key];
 
-  for (let keyA in a) {
-    if (a[keyA] === b[keyA]) {
-      continue;
+    if (valueA === valueB) return acc;
+
+    if (isObject(valueA) && isObject(valueB)) {
+      return acc.concat(subtractJson(valueA, valueB).map((x) => `${key}.${x}`));
     }
 
-    if (typeof a[keyA] === "object" && typeof b[keyA] === "object") {
-      mismatchList = mismatchList.concat(
-        subtractJson(a[keyA], b[keyA]).map((x) => {
-          return `${keyA}.${x}`;
-        })
-      );
-    } else {
-      mismatchList.push(keyA);
-    }
-  }
-
-  return mismatchList;
+    return acc.concat(key);
+  }, []);
 };
 
 const differenceJSON = (a, b) => {

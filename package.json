@@ -22,7 +22,6 @@
   "homepage": "https://github.com/taharactrl/node-utils#readme",
   "devDependencies": {
     "chai": "^4.3.6",
-    "lodash": "^4.17.21",
     "mocha": "^10.0.0"
   }
 }
